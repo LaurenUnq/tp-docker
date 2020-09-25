@@ -1,9 +1,12 @@
 name: Publish Docker image
 on: [push]
 jobs:
+  postgres:
+    runs-on: ubuntu-latest
+    steps:
+
   build:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v2
       - name: Set up JDK 1.8
@@ -12,7 +15,10 @@ jobs:
           java-version: 1.8
       - name: Build with Gradle
         run: ./gradlew build
+      - name: Run with Gradle
+        run: ./gradlew run
   push_to_registry:
+    needs: build
     name: Push Docker image to Docker Hub
     runs-on: ubuntu-latest
     steps:
