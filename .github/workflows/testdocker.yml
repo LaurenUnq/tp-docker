@@ -1,10 +1,6 @@
 name: Publish Docker image
 on: [push]
 jobs:
-  postgres:
-    runs-on: ubuntu-latest
-    steps:
-
   build:
     runs-on: ubuntu-latest
     steps:
