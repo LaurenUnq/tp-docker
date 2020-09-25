@@ -67,6 +67,9 @@ tasks.withType<KotlinCompile> {
 
 tasks.withType<Test> {
     useJUnitPlatform()
+    systemProperty("database.url", project.property("database.url"))
+    systemProperty("database.username", project.property("database.username"))
+    systemProperty("database.password", project.property("database.password"))
 }
 
 tasks.withType<Wrapper> {
