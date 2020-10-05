@@ -41,3 +41,7 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
           repository: laurenunquera/tpdocker
           tag_with_ref: true
+      - name: Build image
+      run: docker build ./docker --tag laurenunquera/tpdocker
+      - name: Push to Docker Hub
+        run: docker push laurenunquera/tpdocker:latest
