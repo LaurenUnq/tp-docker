@@ -6,7 +6,6 @@ ENV dbpwd tp_devops
 
 EXPOSE 8080
 
-ARG JAR_FILE=../build/libs/tp-docker-1.0.0.jar
-ADD ${JAR_FILE} tp-docker.jar
+ADD tp-docker-1.0.0.jar /
 
 ENTRYPOINT java -Ddatabase.url=${dburl} -Ddatabase.usernamer=${dbname} -Ddatabase.password=${dbpwd} -jar tp-docker-1.0.0.jar
